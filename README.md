@@ -27,4 +27,4 @@ trans("P47900",["CC1=CC=CC(=C1)C2=NOC(=N2)CN(C(C)C)C(=O)C3=CC(=CC(=C3)OC)C","C1=
 transfile("P30939","data.csv")
 where "P47900" is the given target, "["CC1=CC=CC(=C1)C2=NOC(=N2)CN(C(C)C)C(=O)C3=CC(=CC(=C3)OC)C","C1=CC=C2C=C(C=CC2=C1)C=CC(=O)CCC(=O)O"]" is the list of the SMILES strings. You can also upload your csv file to generate the fingerprints. "data.csv" is the demo file we provided.
 
-If you have any questions, please contact the author's email: 1019172220@njupt.edu.cn
+If you have any questions, please contact us by email: 1019172220@njupt.edu.cn
