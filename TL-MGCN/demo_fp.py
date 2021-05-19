@@ -53,26 +53,26 @@ def trans(target,smiles1):
     for i in smiles1:
         target1.append(target)
 
-    if os.path.exists("TL-MGCN/data/usr_input.csv"):
-        os.remove("TL-MGCN/data/usr_input.csv")
+    if os.path.exists("usr_input.csv"):
+        os.remove("usr_input.csv")
     df = pd.DataFrame(columns=["GPCR","smiles"],index=None)
     df["GPCR"] = target1
     df["smiles"] = smiles1
-    df.to_csv("TL-MGCN/data/usr_input.csv",index=False)
+    df.to_csv("usr_input.csv",index=False)
 
     temp = df['GPCR'][0]
     #设置wdl网络权重文件
-    trained_weights_file = 'TL-MGCN/Models/tr_'+temp+'_trained_weights.pkl'
+    trained_weights_file = 'Models/Models_TD/tr_'+temp+'_trained_weights.pkl'
     #设置rf模型文件
-    model_file = 'TL-MGCN/Models/'+'tr_'+temp+'_RF.pkl'
+    model_file = 'Models/Models_TD/'+'tr_'+temp+'_RF.pkl'
     #调用函数做预测+
-    fp, pvalue = predict_fp_and_pvalue('TL-MGCN/data/usr_input.csv', weights_file=trained_weights_file, model_file=model_file)
+    fp, pvalue = predict_fp_and_pvalue('usr_input.csv', weights_file=trained_weights_file, model_file=model_file)
     #设置保存结果csv文件
-    save_file = 'TL-MGCN/data/Result/'+'tr_'+temp+'_result.csv'
+    save_file = 'Result/'+'tr_'+temp+'_result.csv'
     d = pd.read_csv(save_file)
     print(d[{'GPCR', 'smiles', 'fp'}])
     #将结果保存到csv文件中
-    save_result_to_csv2('TL-MGCN/data/usr_input.csv', outputfile=save_file, pvalue=pvalue, fp=fp)
+    save_result_to_csv2('usr_input.csv', outputfile=save_file, pvalue=pvalue, fp=fp)
 
 def transfile(target,uploadfile):
     #target = target.split()[-1][1:7]
@@ -86,27 +86,27 @@ def transfile(target,uploadfile):
     for j in smiles1:
         target1.append(target)
 
-    if os.path.exists("TL-MGCN/data/usr_input1.csv"):
-        os.remove("TL-MGCN/data/usr_input1.csv")
+    if os.path.exists("usr_input1.csv"):
+        os.remove("usr_input1.csv")
     df = pd.DataFrame(columns=["GPCR","smiles"],index=None)
     df["GPCR"] = target1
     df["smiles"] = smiles1
-    df.to_csv("TL-MGCN/data/usr_input1.csv",index=False)
+    df.to_csv("usr_input1.csv",index=False)
 
     temp = df['GPCR'][0]
     #设置wdl网络权重文件
-    trained_weights_file = 'TL-MGCN/Models/tr_'+temp+'_trained_weights.pkl'
+    trained_weights_file = 'Models/Models_TD/tr_'+temp+'_trained_weights.pkl'
     #设置rf模型文件
-    model_file = 'TL-MGCN/Models/'+'tr_'+temp+'_RF.pkl'
+    model_file = 'Models/Models_TD/'+'tr_'+temp+'_RF.pkl'
     #调用函数做预测+
-    fp, pvalue = predict_fp_and_pvalue('TL-MGCN/data/usr_input1.csv', weights_file=trained_weights_file, model_file=model_file)
+    fp, pvalue = predict_fp_and_pvalue('usr_input1.csv', weights_file=trained_weights_file, model_file=model_file)
     #设置保存结果csv文件
-    save_file = 'TL-MGCN/data/Result/'+'tr_'+temp+'_result.csv'
+    save_file = 'Result/'+'tr_'+temp+'_result.csv'
     d=pd.read_csv(save_file)
     print(d[{'GPCR','smiles','fp'}])
     #将结果保存到csv文件中
-    save_result_to_csv2('TL-MGCN/data/usr_input1.csv', outputfile=save_file, pvalue=pvalue, fp=fp)
+    save_result_to_csv2('usr_input1.csv', outputfile=save_file, pvalue=pvalue, fp=fp)
 
 trans("P47900",["CC1=CC=CC(=C1)C2=NOC(=N2)CN(C(C)C)C(=O)C3=CC(=CC(=C3)OC)C","C1=CC=C2C=C(C=CC2=C1)C=CC(=O)CCC(=O)O"])
 
-#transfile("P30939","TL-MGCN/data/data.csv")
+#transfile("P30939","data.csv")
