@@ -8,7 +8,7 @@ Follow the instructions below, or consult the knowledge base for more informatio
 TL-MGCN, using transfer learning with molecular graph convolutional networks, for accurate modelling and representation of bioactivities of ligands targeting GPCR proteins without sufficient data. The pipeline of TL-MGCN consists of three steps: (i) To pretrain the molecular graph convolutional network model on the source domain dataset; (ii) To finetune the model on the target domain dataset; and (iii) To predict bioactivities of ligands from the target domain by random forest.
 
 # Code usage:
-All codes are used in the python3 version of the windows10 operating system. Download Anaconda3 and use the spyder compiler.
+All codes are used in the python3 version of the windows10 operating system.
 
 Necessary packages: rdkit(rdkit.org), wdl_rf(pip install wdl_rf), and other basic packages
 
